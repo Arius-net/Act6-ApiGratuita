@@ -10,9 +10,9 @@ export function createApp(): Application {
   const app: Application = express();
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
+  origin: true, // Esto permite CUALQUIER origen. Úsalo para probar si el error desaparece.
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
   app.use(express.json());
