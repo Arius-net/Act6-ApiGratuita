@@ -2,7 +2,6 @@ import { createApp } from './app';
 import { config } from './config/config';
 
 const app = createApp();
-const HOST = config.server.host;
 
 // En lugar de usar config.server.port y host fijos:
 const PORT = process.env.PORT || 3000;
