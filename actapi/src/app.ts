@@ -9,8 +9,11 @@ import { notFoundHandler } from './middlewares/notFound.middleware';
 export function createApp(): Application {
   const app: Application = express();
 
-
-  app.use(cors(config.cors));
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
   app.use(express.json());
 
