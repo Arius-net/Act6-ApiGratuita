@@ -83,3 +83,30 @@ export interface ErrorResponse {
     timestamp: string;
   };
 }
+
+
+// Deck Types
+export interface Deck {
+  id: string;
+  name: string;
+  cards: HearthstoneCard[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface CreateDeckRequest {
+  name: string;
+}
+
+export interface AddCardToDeckRequest {
+  card: HearthstoneCard;
+}
+
+export interface DeckStats {
+  totalCards: number;
+  averageManaCost: number;
+  cardsByRarity: Record<number, number>;
+  cardsByClass: Record<number, number>;
+  maxCards: number;
+  slotsRemaining: number;
+}

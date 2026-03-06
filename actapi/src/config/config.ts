@@ -6,6 +6,7 @@ export const config = {
 
   server: {
     port: parseInt(process.env.PORT || '3001', 10),
+    host: process.env.HOST || '0.0.0.0', // 0.0.0.0 para Docker
     env: process.env.NODE_ENV || 'development',
   },
 
@@ -30,7 +31,7 @@ export const config = {
     },
     hearthstone: {
       locale: 'es_MX',
-      pageSize: 10,
+      pageSize: 100, // Aumentado a 100 cartas por defecto
       timeout: 10000,
     },
   },

@@ -4,7 +4,6 @@ import healthRoutes from './health.routes';
 
 const router = Router();
 
-// Montar rutas
 router.use('/api', apiRoutes);
 router.use('/', healthRoutes);
 
