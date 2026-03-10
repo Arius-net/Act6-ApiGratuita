@@ -2,20 +2,14 @@ import { createApp } from './app';
 import { config } from './config/config';
 
 const app = createApp();
-const PORT = config.server.port;
-const HOST = config.server.host;
 
-app.listen(PORT, HOST, () => {
+// En lugar de usar config.server.port y host fijos:
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
   console.log('='.repeat(50));
-  console.log(`🚀 Servidor Express iniciado correctamente`);
-  console.log(`📡 Escuchando en: ${HOST}:${PORT}`);
-  console.log(`🌍 Entorno: ${config.server.env}`);
-  console.log(`⏰ Timestamp: ${new Date().toISOString()}`);
-  console.log('='.repeat(50));
-  console.log('');
-  console.log('📋 Endpoints disponibles:');
-  console.log(`   GET http://localhost:${PORT}/health`);
-  console.log(`   GET http://localhost:${PORT}/api/hearthstone-draw`);
+  console.log(`🚀 Servidor iniciado en puerto: ${PORT}`);
+  console.log(`🌍 Entorno: ${process.env.NODE_ENV}`);
   console.log('='.repeat(50));
 });
 
