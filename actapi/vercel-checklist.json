@@ -1,0 +1,43 @@
+{
+  "name": "verify-deployment",
+  "description": "Script para verificar que tu proyecto está listo para Vercel",
+  "steps": [
+    {
+      "check": "Archivos de configuración",
+      "files": [
+        "vercel.json",
+        "package.json",
+        ".vercelignore",
+        ".env.example",
+        "api/index.ts"
+      ]
+    },
+    {
+      "check": "Variables de entorno requeridas",
+      "variables": [
+        "BLIZZARD_CLIENT_ID",
+        "BLIZZARD_CLIENT_SECRET",
+        "FRONTEND_URL",
+        "NODE_ENV"
+      ]
+    },
+    {
+      "check": "Dependencias",
+      "run": "npm install"
+    },
+    {
+      "check": "Build local (opcional)",
+      "run": "npm run build"
+    }
+  ],
+  "deployment_checklist": [
+    "✓ Archivos de configuración creados",
+    "✓ Variables de entorno documentadas en .env.example",
+    "✓ Endpoint api/index.ts creado para Vercel",
+    "✓ vercel.json configurado para Serverless Functions",
+    "☐ Instalar Vercel CLI: npm install -g vercel",
+    "☐ Login en Vercel: vercel login",
+    "☐ Configurar variables de entorno en Vercel",
+    "☐ Desplegar: vercel --prod"
+  ]
+}
